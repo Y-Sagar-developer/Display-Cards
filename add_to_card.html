@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container" id="container"></div>
+    <script>
+      const container = document.getElementById("container");
+
+      // Retrieve data from LocalStorage
+      const data = JSON.parse(localStorage.getItem("ProductData")) || [];
+
+      if (data.length === 0) {
+        container.innerHTML = "<p>No items in the cart.</p>";
+      } else {
+        data.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          const img = document.createElement("img");
+          img.src = item.image;
+
+          const title = document.createElement("h4");
+          title.textContent = item.title;
+
+          const price = document.createElement("p");
+          price.textContent = `$${item.price}`;
+
+          card.appendChild(img);
+          card.appendChild(title);
+          card.appendChild(price);
+          container.appendChild(card);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+  <body>
+    <div class="container" id="container"></div>
+    <script>
+      const container = document.getElementById("container");
+      let data = JSON.parse(localStorage.getItem("ProductData"));
+
+      let newdata = data.map((item) => {
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const img = document.createElement("img");
+        img.src = item.image;
+
+        const title = document.createElement("h4");
+        title.textContent = item.title;
+
+        const price = document.createElement("p");
+        price.textContent = item.price;
+
+        card.appendChild(img);
+        card.appendChild(title);
+        card.appendChild(price);
+        container.appendChild(card);
+      });
+    </script>
+  </body>
+</html> -->
